@@ -47,7 +47,10 @@ class ZebraScannerManager(private val reactContext: ReactApplicationContext) : I
                 DCSSDKDefs.DCSSDK_EVENT.DCSSDK_EVENT_SESSION_TERMINATION.value or
                 DCSSDKDefs.DCSSDK_EVENT.DCSSDK_EVENT_BARCODE.value
         try {
-            sdkHandler.dcssdkSetOperationalMode(DCSSDKDefs.DCSSDK_MODE.DCSSDK_OPMODE_USB_CDC)
+            sdkHandler.dcssdkSetOperationalMode(DCSSDKDefs.DCSSDK_MODE.DCSSDK_OPMODE_USB_CDC);
+            sdkHandler.dcssdkSetOperationalMode(DCSSDKDefs.DCSSDK_MODE.DCSSDK_OPMODE_BT_NORMAL);
+            sdkHandler.dcssdkSetOperationalMode(DCSSDKDefs.DCSSDK_MODE.DCSSDK_OPMODE_SNAPI);
+            sdkHandler.dcssdkSetOperationalMode(DCSSDKDefs.DCSSDK_MODE.DCSSDK_OPMODE_BT_LE);
             sdkHandler.dcssdkEnableAvailableScannersDetection(true)
             sdkHandler.dcssdkSubsribeForEvents(notifyMask)
 
